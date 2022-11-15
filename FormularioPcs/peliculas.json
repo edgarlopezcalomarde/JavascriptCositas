@@ -1,0 +1,36 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Un gran canalla",
+      "author": "Edgar Lopez"
+    },
+    {
+      "id": "5",
+      "title": "Las grande mentiras fueron pequeñas verdades",
+      "author": "Edgar Lopez"
+    },
+    {
+      "id": "8",
+      "title": "uwu",
+      "author": "jaja"
+    },
+    {
+      "id": "12",
+      "title": "Vivo en requena",
+      "author": "Hector"
+    },
+    {
+      "id": "7",
+      "title": "hector",
+      "author": "hector"
+    },
+    {
+      "id": "36",
+      "title": "Soy otaku veo nerveland",
+      "author": "Yaiza"
+    }
+  ],
+  "comments": [],
+  "profile": {}
+}

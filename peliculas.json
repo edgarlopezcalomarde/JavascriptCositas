@@ -1,0 +1,59 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": "77",
+      "title": "ytendillo",
+      "author": "yaiza"
+    },
+    {
+      "id": "99",
+      "title": "jajajjxd",
+      "author": "yaya"
+    },
+    {
+      "id": "95",
+      "title": "bb",
+      "author": "uwuw"
+    },
+    {
+      "id": "56",
+      "title": "holaaa",
+      "author": "Yaiza"
+    },
+    {
+      "id": "98",
+      "title": "uwu",
+      "author": "bb"
+    },
+    {
+      "id": "57",
+      "title": "avellanas",
+      "author": "edgar"
+    },
+    {
+      "id": "43",
+      "title": "ejjeje",
+      "author": "bbee"
+    },
+    {
+      "id": "49",
+      "title": "wee",
+      "author": "weee"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

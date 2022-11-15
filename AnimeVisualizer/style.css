@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body{
+    background-color: #09814a;
+ 
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.c-body{
+    width: 1068px;
+    border: 2px solid red;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+.c-buscador {
+   display: flex;
+   justify-content: center;
+}
+
+.c-buscador {
+    display: flex;
+    justify-content: center;
+}
+
+.c-input--buscador{
+    width: 100%;
+}
+
+
+.c-top{
+    padding: 20px;
+
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr;
+    gap: 16px;
+}
+
+
+.c-card{
+    padding: 5px;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+
+}
