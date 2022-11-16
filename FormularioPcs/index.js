@@ -1,5 +1,5 @@
 
-
+const estado = document.querySelector(".estado")
 
 const listFormatter = (data) =>{
     let list = "<ul>"
@@ -25,8 +25,6 @@ const objectFormatter = (data) =>{
     return box;
 }
 
-
-
 const sendPostFormData = () =>{
 	let post=new FormData(document.forms.posts);
 	let newPost={};
@@ -39,6 +37,17 @@ const sendPostFormData = () =>{
 	xhr.open("POST", 'http://localhost:3000/posts')
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')
 	xhr.send(JSON.stringify(newPost));
+
+    xhr.addEventListener("load", ()=>{{
+        const posts = document.getElementById("posts")
+        if(xhr.status >= 200 && xhr.status <300){
+            estado.innerHTML =xhr.status+": Todo correcto mi bro";
+        }else{
+            estado.innerHTML =xhr.status+": Algo salio mal";
+            posts.innerHTML = ""
+        }
+       
+    }})
 }
 
 
@@ -53,6 +62,19 @@ const sendPostJson = () =>{
     xhr.open("POST", "http://localhost:3000/posts")
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')
     xhr.send(JSON.stringify(post))
+
+
+    xhr.addEventListener("load", ()=>{{
+        const posts = document.getElementById("posts")
+        if(xhr.status >= 200 && xhr.status <300){
+            estado.innerHTML =xhr.status+": Todo correcto mi bro";
+        }else{
+            estado.innerHTML =xhr.status+": Algo salio mal";
+            posts.innerHTML = ""
+        }
+       
+    }})
+
 }
 
 
@@ -64,15 +86,16 @@ const getAllPost = () =>{
 
 
     xhr.addEventListener("load", ()=>{{
-
+        const posts = document.getElementById("posts")
         if(xhr.status >= 200 && xhr.status <300){
-            const posts = document.getElementById("posts")
             //posts.innerHTML = JSON.stringify(xhr.response)
             //posts.innerHTML = listFormatter(xhr.response)
             posts.innerHTML = objectFormatter(xhr.response)
+            estado.innerHTML =xhr.status+": Todo correcto mi bro";
     
         }else{
-            alert(xhr.status)
+            estado.innerHTML =xhr.status+": Algo salio mal";
+            posts.innerHTML = ""
         }
        
     }})
@@ -86,18 +109,61 @@ const getPostById = (id) =>{
     xhr.send()
 
     xhr.addEventListener("load", ()=>{{
+        const posts = document.getElementById("posts")
 
         if(xhr.status >= 200 && xhr.status <300){
-            const posts = document.getElementById("posts")
             posts.innerHTML = xhr.response
-    
+            estado.innerHTML =xhr.status+": Todo correcto mi bro";
         }else{
-            alert(xhr.status)
+            estado.innerHTML =xhr.status+": Algo salio mal";
+            posts.innerHTML = ""
         }
        
     }})
 
     
+}
+
+
+const deletePost = (id) => {
+    const xhr = new XMLHttpRequest()
+    xhr.open("DELETE", "http://localhost:3000/posts/"+id)
+    xhr.send()
+
+    xhr.addEventListener("load", ()=>{
+        const posts = document.getElementById("posts")
+
+        if(xhr.status >= 200 && xhr.status <300){
+            estado.innerHTML =xhr.status+": Todo correcto mi bro";
+        }else{
+            estado.innerHTML =xhr.status+": Algo salio mal";
+            posts.innerHTML = ""
+        }
+    })
+}
+
+const updatePost = (id, title, author) => {
+    const xhr = new XMLHttpRequest()
+
+    let post = {}
+    Array.from(document.forms.posts).forEach(input => {
+        post[input.name] = input.value;
+    });
+
+    xhr.open("PATCH", "http://localhost:3000/posts/"+id)
+    xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')
+    xhr.send(JSON.stringify(post))
+
+    xhr.addEventListener("load", ()=>{
+        const posts = document.getElementById("posts")
+
+        if(xhr.status >= 200 && xhr.status <300){
+            estado.innerHTML =xhr.status+": Todo correcto mi bro";
+        }else{
+            estado.innerHTML =xhr.status+": Algo salio mal";
+            posts.innerHTML = ""
+        }
+    })
 }
 
 
@@ -125,10 +191,10 @@ btnGetId.addEventListener("click", (e)=>{
     getPostById(document.forms.posts.id.value)
 })
 
-btnDelete.addEventListener("click", (e)=>{
-    //Falta implementar
+btnDelete.addEventListener("click", (e)=>{  
+    deletePost(document.forms.posts.id.value)
 })
 
 btnUpdate.addEventListener("click", (e)=>{
-    //Falta implementar
+   updatePost(document.forms.posts.id.value, document.forms.posts.title, document.forms.posts.author)
 })
