@@ -29,9 +29,15 @@ const sendPostFormData = () =>{
 	let post=new FormData(document.forms.posts);
 	let newPost={};
 
+    /*
 	for (let par of post) {
 		newPost[par[0]]=par[1]
 	}
+
+    */
+
+    post.forEach((k, v)=>newPost[k] = v)
+
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", 'http://localhost:3000/posts')
@@ -179,8 +185,8 @@ const btnUpdate = document.querySelector(".btnUpdate")
 
 btnAgregar.addEventListener("click", (e)=>{
     e.preventDefault()
-    sendPostJson()
-    //sendPostFormData()
+    //sendPostJson()
+    sendPostFormData()
 })
 
 btnGetAll.addEventListener("click", (e)=>{

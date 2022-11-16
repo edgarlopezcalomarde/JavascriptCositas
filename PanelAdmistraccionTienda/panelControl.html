@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>DAW</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="shortcut icon" href="assets/icono.png" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+ 
+</head>
+
+<script src="./js/tienda.js"></script>
+
+
+<style>
+
+	*{
+		font-family: 'Poppins', sans-serif;
+	}
+
+	
+	.oculto{
+		display: none;
+	}
+
+	#miDialogo{
+		border: none;
+		box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+		border-radius: 10px;
+
+	}
+
+	.navbar-brand{
+		font-weight: 700;
+	}
+
+	form{
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		padding-top: 16px;
+		padding-bottom: 16px;
+	}
+
+
+</style>
+
+<body>
+	
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+		<a class="navbar-brand" href="#">EddStore - PANEL DE CONTROL</a>
+	
+		
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		  
+		
+
+			<ul class="navbar-nav ml-auto nav-flex-icons">
+				<li class="nav-item">
+				  <button type="button" class="btn btn-primary" id="btnAddArticle">Nuevo articulo</button>
+				</li>
+			  </ul>
+	
+		</div>
+	  </nav>
+
+	  
+
+	<br>
+
+	<!-- Div contenedor de los cards de articulos -->
+	<div id="contenedor" class="mt-5"></div>  
+	
+	<!-- Componente HTML para dialogos modales -->
+	<dialog id="dialogoUpdate">
+
+		<h2>Editar Articulo</h2>
+	
+		<form name="updateform">
+
+			<span>Id: </span> 
+			<input type="text" name="id" readonly>
+			
+			<span>Nombre: </span>
+			<input type="text" name="nombre">
+
+			<span>Descripcion: </span>
+			<input type="text" name="descripcion">
+
+			<span>Precio: </span>
+			<input type="text" name="precio">
+			
+		</form>
+
+		<div>
+			<button id="btnCancelUpdate" class="btn btn-secondary">Cancelar</button>
+			<button id="btnModifiyUpdate" class="btn btn-info" >Modificar</button>
+		</div>
+	</dialog>
+
+	<dialog id="dialogoInsert">
+	
+		<h2>Articulo Nuevo</h2>
+	
+		<form name="insertform">
+
+			<span>Id: </span> 
+			<input type="text" name="id">
+			
+			<span>Nombre: </span>
+			<input type="text" name="nombre">
+
+			<span>Descripcion: </span>
+			<input type="text" name="descripcion">
+
+			<span>Precio: </span>
+			<input type="text" name="precio">
+			
+		</form>
+
+		<div>
+			<button id="btnCancelInsert" class="btn btn-secondary">Cancelar</button>
+			<button id="btnInsert" class="btn btn-info">Agregar</button>
+		</div>
+	</dialog>
+	
+
+</body>
+</html>
